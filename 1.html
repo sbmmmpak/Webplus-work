@@ -95,6 +95,20 @@
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, var(--bg-color) 1px, transparent 1px) 0 0 / 40px 40px,
+                linear-gradient(var(--bg-color) 1px, transparent 1px) 0 0 / 40px 40px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
         .hero h1 {
             font-size: 4rem;
             line-height: 1.2;
@@ -242,55 +256,95 @@
         /* Pricing Section */
         .pricing {
             padding: 6rem 0;
-            background: linear-gradient(to right, var(--primary-glow), transparent);
+            background: var(--bg-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .pricing-comparison {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url('https://media.istockphoto.com/id/1328208927/vector/abstract-maze-route-subway-intersection-background-pattern.jpg?s=612x612&w=0&k=20&c=2VuiIXaGx7JWQPQbiqLk1LyRIShLbZQZInVuijUXZQM=');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
         }
 
-        .pricing-card {
-            background: rgba(17, 17, 17, 0.9);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: transform 0.3s;
+        .pricing-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
+        .pricing-content {
+            width: 50%;
+            padding-right: 4rem;
         }
 
-        .price-tag {
+        .pricing-title {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--primary);
-            margin: 2rem 0;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .price-tag small {
+        .pricing-subtitle {
             font-size: 1.2rem;
             color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
-        .feature-list {
+        .pricing-features {
             list-style: none;
-            margin: 2rem 0;
-            text-align: left;
+            margin-bottom: 2rem;
         }
 
-        .feature-list li {
+        .pricing-features li {
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
             color: var(--text-muted);
         }
 
-        .feature-list li i {
+        .pricing-features i {
             color: var(--primary);
-            margin-right: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        .price-amount {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .price-amount small {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .order-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--primary);
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .order-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         /* Testimonials */
@@ -356,6 +410,23 @@
             background: var(--card-bg);
             padding: 6rem 0;
             border-top: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(1); }
         }
 
         .footer-grid {
@@ -407,8 +478,23 @@
                 grid-template-columns: 1fr;
             }
 
-            .pricing-comparison {
-                grid-template-columns: 1fr;
+            .pricing-container {
+                flex-direction: column;
+            }
+            .pricing-content {
+                width: 100%;
+                padding-right: 0;
+                text-align: center;
+            }
+            .pricing::before {
+                width: 100%;
+                height: 50%;
+                top: 50%;
+            }
+            .pricing-features {
+                text-align: left;
+                max-width: 400px;
+                margin: 0 auto 2rem;
             }
         }
     </style>
@@ -514,49 +600,26 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Updated Pricing Section -->
     <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Choose Your Perfect Plan</h2>
-            <div class="pricing-comparison">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="price-tag">₹499<small>/month</small></div>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 10GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                        <li><i class="fas fa-check"></i> Weekly Backups</li>
-                        <li><i class="fas fa-check"></i> Basic Support</li>
-                        <li><i class="fas fa-check"></i> 1 Website</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+        <div class="pricing-container">
+            <div class="pricing-content">
+                <h1 class="pricing-title">Everything you need to scale your business</h1>
+                <p class="pricing-subtitle">Up to 72% off hosting + maintenance</p>
+                
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Professional Website Hosting</li>
+                    <li><i class="fas fa-check"></i> Regular Maintenance & Updates</li>
+                    <li><i class="fas fa-check"></i> 24/7 Technical Support</li>
+                    <li><i class="fas fa-check"></i> Security Monitoring</li>
+                    <li><i class="fas fa-check"></i> Performance Optimization</li>
+                </ul>
+
+                <div class="price-amount">
+                    ₹999<small>/month</small>
                 </div>
-                <div class="pricing-card" style="transform: scale(1.05);">
-                    <h3>Professional</h3>
-                    <div class="price-tag">₹999<small>/month</small></div>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                        <li><i class="fas fa-check"></i> Daily Backups</li>
-                        <li><i class="fas fa-check"></i> Priority Support</li>
-                        <li><i class="fas fa-check"></i> 5 Websites</li>
-                        <li><i class="fas fa-check"></i> CDN Included</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="price-tag">₹2499<small>/month</small></div>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 200GB SSD Storage</li>
-                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                        <li><i class="fas fa-check"></i> Real-time Backups</li>
-                        <li><i class="fas fa-check"></i> Dedicated Support</li>
-                        <li><i class="fas fa-check"></i> Unlimited Websites</li>
-                        <li><i class="fas fa-check"></i> Advanced Security</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                </div>
+
+                <a href="#contact" class="order-btn">Order Now</a>
             </div>
         </div>
     </section>
@@ -662,18 +725,36 @@
                 <p>&copy; 2024 HostMaster. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+        <script>
+            // Add glowing stars
+            function createStars() {
+                const footer = document.querySelector('.footer');
+                const colors = ['#4ade80', '#60a5fa', '#f472b6', '#fbbf24'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    star.style.animationDelay = `${Math.random() * 3}s`;
+                    footer.appendChild(star);
+                }
+            }
 
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
-        });
-    </script>
+
+            // Initialize stars
+            createStars();
+        </script>
+    </footer>
 </body>
 </html>
