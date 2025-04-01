@@ -41,5 +41,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Clone sentences for infinite scroll effect
+document.querySelectorAll('.sentence-row').forEach(row => {
+    const sentences = row.innerHTML;
+    row.innerHTML = sentences + sentences;
+});
+
 // Initialize stars
 createStars();

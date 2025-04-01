@@ -1,0 +1,146 @@
+*{
+    font-family: sans-serif;
+}
+
+.contact-section {
+    padding: 8rem 0 6rem;
+    background: var(--bg-color);
+    min-height: calc(100vh - 400px);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-form {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-form h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"]{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.aa{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+
+}
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px dashed var(--border-color);
+    background: var(--bg-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.form-group small {
+    display: block;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.contact-image {
+    position: relative;
+    height: 100%;
+    min-height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* IntlTelInput Customization */
+.iti {
+    width: 100%;
+}
+
+.iti__flag-container {
+    padding: 0.75rem;
+}
+
+/* TinyMCE Customization */
+.tox-tinymce {
+    border-radius: 8px !important;
+    border-color: var(--border-color) !important;
+}
+
+.tox .tox-toolbar__primary {
+    background: var(--card-bg) !important;
+}
+
+/* Email validation styles */
+.email-validation {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.email-validation.valid {
+    color: var(--primary);
+}
+
+.email-validation.invalid {
+    color: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-image {
+        min-height: 400px;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+}

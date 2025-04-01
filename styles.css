@@ -302,7 +302,7 @@ body {
 
 .pricing-bg {
     position: absolute;
-    top: 50%;
+    top: 0%;
     right: 0;
     width: 50%;
     height: 100%;
@@ -386,6 +386,130 @@ body {
 .order-btn:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 6rem 0;
+    background: var(--bg-color);
+    position: relative;
+}
+
+.reviews h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.review-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+}
+
+.review-quote {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 8rem;
+    color: var(--primary);
+    opacity: 0.1;
+    font-family: serif;
+    line-height: 1;
+}
+
+.review-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviewer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+
+.reviewer h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.reviewer span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Sliding Sentences Section */
+.sliding-sentences {
+    padding: 4rem 0;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.sentences-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sentence-row {
+    display: flex;
+    white-space: nowrap;
+    animation: slide 30s linear infinite;
+}
+
+.sentence-row[data-direction="left"] {
+    animation-direction: reverse;
+}
+
+.sentence {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.sentence:hover {
+    color: var(--primary);
+}
+
+.sentence-row:nth-child(1) .sentence:hover { color: #4ade80; }
+.sentence-row:nth-child(2) .sentence:hover { color: #60a5fa; }
+.sentence-row:nth-child(3) .sentence:hover { color: #f472b6; }
+.sentence-row:nth-child(4) .sentence:hover { color: #fbbf24; }
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Trusted Companies Section */
@@ -542,6 +666,15 @@ body {
         text-align: left;
         max-width: 400px;
         margin: 0 auto 2rem;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sentence {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
     }
 
     /* Hamburger animation */
