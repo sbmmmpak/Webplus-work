@@ -29,6 +29,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -46,8 +47,8 @@
 
         /* Header */
         .header {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -187,7 +188,7 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -198,12 +199,18 @@
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
         }
 
         .benefit-card i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Growth Section */
@@ -238,21 +245,42 @@
             background: linear-gradient(to right, var(--primary-glow), transparent);
         }
 
+        .pricing-comparison {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .pricing-card {
+            background: rgba(17, 17, 17, 0.9);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
         .price-tag {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--primary);
             margin: 2rem 0;
         }
 
         .price-tag small {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
         }
 
         .feature-list {
             list-style: none;
             margin: 2rem 0;
+            text-align: left;
         }
 
         .feature-list li {
@@ -263,6 +291,44 @@
         .feature-list li i {
             color: var(--primary);
             margin-right: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: linear-gradient(to left, var(--primary-glow), transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(17, 17, 17, 0.8);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
         }
 
         /* Trusted Companies */
@@ -288,19 +354,20 @@
         /* Footer */
         .footer {
             background: var(--card-bg);
-            padding: 4rem 0;
+            padding: 6rem 0;
             border-top: 1px solid var(--border-color);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .footer-links h4 {
             color: var(--text-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .footer-links ul {
@@ -311,12 +378,19 @@
             color: var(--text-muted);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
             color: var(--text-color);
+        }
+
+        .map-container {
+            height: 300px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
         }
 
         /* Responsive Design */
@@ -330,6 +404,10 @@
             }
 
             .growth-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-comparison {
                 grid-template-columns: 1fr;
             }
         }
@@ -369,13 +447,13 @@
             <h2>Our Recent Projects</h2>
             <div class="showcase-grid">
                 <div class="showcase-item">
-                    <img src="https://cdn.dribbble.com/userupload/10396011/file/original-5b6d7bdf1cd6a8e7454f54f9e9cd0c03.png?resize=1024x768" alt="Website Design 1">
+                    <img src="https://cdn.dribbble.com/userupload/12153759/file/original-dc680ab4bc241a05ec08e70d18f87aba.png?resize=1024x768&vertical=center" alt="Website Design 1">
                 </div>
                 <div class="showcase-item">
-                    <img src="https://cdn.dribbble.com/userupload/10396012/file/original-1b90d47f1e4f0c7cec3a21015e33ba51.png?resize=1024x768" alt="Website Design 2">
+                    <img src="https://cdn.dribbble.com/userupload/17878529/file/original-a08f83c285a0620780c0fa7da1a66de3.png?resize=1024x768&vertical=center" alt="Website Design 2">
                 </div>
                 <div class="showcase-item">
-                    <img src="https://cdn.dribbble.com/userupload/10396013/file/original-7f4b4b3f4f4f4f4f4f4f4f4f4f4f4f4f.png?resize=1024x768" alt="Website Design 3">
+                    <img src="https://cdn.dribbble.com/userupload/37447016/file/original-9c2257d392488be8902fc1c47d526257.png?resize=1024x768&vertical=center" alt="Website Design 3">
                 </div>
             </div>
         </div>
@@ -389,17 +467,32 @@
                 <div class="benefit-card">
                     <i class="fas fa-rocket"></i>
                     <h3>Lightning Fast</h3>
-                    <p>Experience blazing-fast load times with our optimized hosting infrastructure</p>
+                    <p>Experience blazing-fast load times with our optimized hosting infrastructure and global CDN network</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Secure & Reliable</h3>
-                    <p>Advanced security measures and 99.9% uptime guarantee</p>
+                    <p>Advanced security measures, DDoS protection, and 99.9% uptime guarantee</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Expert support team available round the clock</p>
+                    <h3>On-Demand Support</h3>
+                    <p>Expert support team ready to assist you whenever you need help</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Powered by enterprise-grade cloud infrastructure for maximum reliability</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>Auto Scaling</h3>
+                    <p>Dynamic resource allocation to handle traffic spikes effortlessly</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>SSL Security</h3>
+                    <p>Free SSL certificates to keep your website secure and trusted</p>
                 </div>
             </div>
         </div>
@@ -424,16 +517,74 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2>Special Limited Offer</h2>
-            <div class="price-tag">₹999<small>/month</small></div>
-            <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Unlimited Storage</li>
-                <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                <li><i class="fas fa-check"></i> Daily Backups</li>
-                <li><i class="fas fa-check"></i> 24/7 Support</li>
-                <li><i class="fas fa-check"></i> Free Domain Name</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Get Started Now</a>
+            <h2>Choose Your Perfect Plan</h2>
+            <div class="pricing-comparison">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price-tag">₹499<small>/month</small></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 10GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                        <li><i class="fas fa-check"></i> Weekly Backups</li>
+                        <li><i class="fas fa-check"></i> Basic Support</li>
+                        <li><i class="fas fa-check"></i> 1 Website</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card" style="transform: scale(1.05);">
+                    <h3>Professional</h3>
+                    <div class="price-tag">₹999<small>/month</small></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                        <li><i class="fas fa-check"></i> Daily Backups</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> 5 Websites</li>
+                        <li><i class="fas fa-check"></i> CDN Included</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price-tag">₹2499<small>/month</small></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 200GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                        <li><i class="fas fa-check"></i> Real-time Backups</li>
+                        <li><i class="fas fa-check"></i> Dedicated Support</li>
+                        <li><i class="fas fa-check"></i> Unlimited Websites</li>
+                        <li><i class="fas fa-check"></i> Advanced Security</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Client" class="testimonial-image">
+                    <h4>Sarah Johnson</h4>
+                    <p>"The best hosting service I've ever used. Their support team is incredible!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" alt="Client" class="testimonial-image">
+                    <h4>Michael Chen</h4>
+                    <p>"Incredible speed and reliability. Our website has never performed better."</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150" alt="Client" class="testimonial-image">
+                    <h4>Emily Davis</h4>
+                    <p>"The security features give us peace of mind. Highly recommended!"</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -442,10 +593,12 @@
         <div class="container">
             <h3>Trusted by Leading Companies</h3>
             <div class="company-list">
-                <span class="company-name">TechCorp</span>
-                <span class="company-name">InnovateLabs</span>
-                <span class="company-name">DigitalPro</span>
-                <span class="company-name">WebMasters</span>
+                <span class="company-name">Microsoft</span>
+                <span class="company-name">Adobe</span>
+                <span class="company-name">Shopify</span>
+                <span class="company-name">Salesforce</span>
+                <span class="company-name">Intel</span>
+                <span class="company-name">Oracle</span>
             </div>
         </div>
     </section>
@@ -460,13 +613,17 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Partners</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#">Web Hosting</a></li>
-                        <li><a href="#">Domain Names</a></li>
+                        <li><a href="#">Cloud Hosting</a></li>
+                        <li><a href="#">VPS Hosting</a></li>
+                        <li><a href="#">Dedicated Servers</a></li>
                         <li><a href="#">SSL Certificates</a></li>
                     </ul>
                 </div>
@@ -474,18 +631,32 @@
                     <h4>Support</h4>
                     <ul>
                         <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
                         <li><a href="#">Status</a></li>
+                        <li><a href="#">Security</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Location</h4>
+                    <h4>Contact Us</h4>
                     <p style="color: var(--text-muted);">
                         123 Tech Street<br>
                         Digital City, DC 12345<br>
-                        India
+                        India<br><br>
+                        Email: support@hostmaster.com<br>
+                        Phone: +91 123 456 7890
                     </p>
                 </div>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5965666493607!2d77.5945627!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1645000000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
             <div style="text-align: center; margin-top: 2rem; color: var(--text-muted);">
                 <p>&copy; 2024 HostMaster. All rights reserved.</p>
